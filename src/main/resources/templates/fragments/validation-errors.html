@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+  <!-- Field-level error message fragment -->
+  <!-- Usage: <div th:replace="~{fragments/validation-errors :: fieldError('name')}"></div> -->
+  <div th:fragment="fieldError(fieldName)"
+       th:if="${#fields.hasErrors(fieldName)}"
+       th:errors="*{__${fieldName}__}"
+       th:id="${fieldName + '-error'}"
+       class="field-error"
+       role="alert">
+    Validation error for this field.
+  </div>
+
+  <!-- Global form error banner fragment -->
+  <!-- Usage: <div th:replace="~{fragments/validation-errors :: globalErrors}"></div> -->
+  <div th:fragment="globalErrors"
+       th:if="${#fields.hasGlobalErrors()}"
+       class="alert alert-danger"
+       role="alert">
+    <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Global error description</p>
+  </div>
+</body>
+</html>

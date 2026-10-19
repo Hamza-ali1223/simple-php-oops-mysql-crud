@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: main-layout('User not found', ~{::section})}">
+<head>
+  <meta charset="UTF-8">
+  <title>User not found - User Management</title>
+  <link rel="stylesheet" th:href="@{/css/application.css}" href="../../static/css/application.css">
+</head>
+<body>
+  <section>
+    <div class="card error-page">
+      <h1 class="error-title">User not found</h1>
+      <p class="error-message">
+        That user could not be found. The record may have been deleted, or the requested identifier is invalid.
+      </p>
+      <div>
+        <a th:href="@{/users}" class="btn btn-primary">
+          Back to user list
+        </a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

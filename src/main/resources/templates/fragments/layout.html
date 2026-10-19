@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="main-layout(pageTitle, content)">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${pageTitle != null ? pageTitle + ' - User Management' : 'User Management'}">User Management</title>
+  <link rel="stylesheet" th:href="@{/css/application.css}" href="../../static/css/application.css">
+</head>
+<body>
+  <!-- Accessibility skip link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header & Navigation -->
+  <header class="app-header" role="banner" th:fragment="header">
+    <div class="header-container">
+      <a th:href="@{/users}" href="../users/list.html" class="brand-link">
+        User Management
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a th:href="@{/users}" href="../users/list.html" class="nav-link">Users</a>
+        <a th:href="@{/users/new}" href="../users/form.html" class="btn btn-sm btn-primary">Add user</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main id="main-content" class="app-main" role="main">
+    <!-- Flash / Operation Feedback Messages -->
+    <div th:if="${successMessage}" class="alert alert-success" role="status" aria-live="polite">
+      <span th:text="${successMessage}">Operation completed successfully.</span>
+    </div>
+    <div th:if="${errorMessage}" class="alert alert-danger" role="alert" aria-live="assertive">
+      <span th:text="${errorMessage}">An error occurred.</span>
+    </div>
+
+    <!-- Page Specific Content -->
+    <div th:replace="${content}">
+      <p>Page content placeholder</p>
+    </div>
+  </main>
+
+  <!-- Footer Landmark -->
+  <footer class="app-footer" role="contentinfo" th:fragment="footer">
+    <div class="footer-container">
+      <span>User Management System &bull; Java Spring Boot &amp; Thymeleaf</span>
+      <span>Course Reengineering Project</span>
+    </div>
+  </footer>
+</body>
+</html>

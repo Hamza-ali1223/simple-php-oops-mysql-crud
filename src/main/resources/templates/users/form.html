@@ -20,13 +20,13 @@
       </div>
 
       <div class="card-body">
-        <!-- Global error alerts if present -->
-        <div th:replace="~{fragments/validation-errors :: globalErrors}"></div>
-
         <form th:action="${userForm.id != null} ? @{/users/{id}(id=${userForm.id})} : @{/users}"
               th:object="${userForm}"
               method="post"
               novalidate>
+
+          <!-- Global error alerts if present (must sit inside th:object scope) -->
+          <div th:replace="~{fragments/validation-errors :: globalErrors}"></div>
 
           <!-- Hidden id field for edit mode -->
           <input type="hidden" th:if="*{id != null}" th:field="*{id}">

@@ -1,13 +1,13 @@
-package com.example.usermanagement;
+package com.oopscrud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserManagementApplication {
+public class OopsCrudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserManagementApplication.class, args);
+		SpringApplication.run(OopsCrudApplication.class, args);
 	}
 
 }

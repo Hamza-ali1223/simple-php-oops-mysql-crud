@@ -8,10 +8,10 @@
 		<version>4.1.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>user-management</artifactId>
+	<groupId>com.oopscrud</groupId>
+	<artifactId>oops-crud</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>user-management</name>
+	<name>oops-crud</name>
 	<description>User Management System (Java migration of PHP CRUD)</description>
 	<url/>
 	<licenses>
